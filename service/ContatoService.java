@@ -8,18 +8,18 @@ import entidades.Contato;
 
 public class ContatoService {
   
-  public Contato criarContato(){
+  public Contato criarContato(Scanner sc){
 
-    Scanner sc = new Scanner(System.in);
+    //Scanner sc = new Scanner(System.in);
 
     System.out.print("Digite seu nome: ");
-    String nome = sc.nextLine();
+    String nome = sc.next();
 
     System.out.print("Digite seu endereço: ");
-    String endereco = sc.nextLine();
+    String endereco = sc.next();
 
     System.out.print("Digite sua data de nascimento(dd/MM/yyyy): ");
-    String dtNascimento = sc.nextLine();
+    String dtNascimento = sc.next();
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     LocalDate lDtNascimento = LocalDate.parse(dtNascimento, dtf);
@@ -29,7 +29,7 @@ public class ContatoService {
     c.setEndereco(endereco);
     c.setDtNascimento(lDtNascimento);
 
-    sc.close();
+    //sc.close();
 
     return c;
   }
