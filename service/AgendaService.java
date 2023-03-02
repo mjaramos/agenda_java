@@ -1,11 +1,8 @@
 package service;
 
-import java.util.List;
 import java.util.Scanner;
 
 import entidades.Agenda;
-import entidades.Contato;
-import entidades.Evento;
 
 public class AgendaService {
 
