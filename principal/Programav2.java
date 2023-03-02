@@ -32,7 +32,9 @@ public class Programav2 {
       System.out.println("######OPÇÕES######");
       System.out.println("1 - Criar Contato");
       System.out.println("2 - Criar Evento");
-      System.out.println("3 - Visualizar Agenda");
+      System.out.println("3 - Cancelar Evento");
+      System.out.println("4 - Concluir Evento");
+      System.out.println("5 - Visualizar Agenda");
       System.out.println("99 - Sair");
       System.out.println("##################");
       System.out.print("Digite a opção: ");
@@ -50,6 +52,12 @@ public class Programav2 {
           agenda.setListaEvento(listaEventos);
           break;
         case 3:
+          eventoService.cancelarEvento(agenda.getListaEvento(), s);
+          break;
+        case 4:
+          eventoService.atualizarEventoConcluido(agenda.getListaEvento());
+          break;
+        case 5:
           agendaService.listarAgenda(agenda, s);
           break;
         case 99:

@@ -1,5 +1,6 @@
 package service;
 
+import java.util.List;
 import java.util.Scanner;
 
 import entidades.Agenda;
@@ -7,8 +8,29 @@ import entidades.Contato;
 import entidades.Evento;
 
 public class AgendaService {
+
+  private ContatoService contatoService;
+
+  private EventoService eventoService;
+
+  public ContatoService getContatoService() {
+    if(contatoService == null){
+      contatoService = new ContatoService();
+    }
+    return contatoService;
+  }
+
+  public EventoService getEventoService() {
+    if(eventoService == null){
+      eventoService = new EventoService();
+    }
+    return eventoService;
+  }
   
   public void listarAgenda(Agenda agenda, Scanner s){
+
+    contatoService = getContatoService();
+    eventoService = getEventoService();
 
     System.out.println("##################");
     System.out.println("######OPÇÕES DE LISTA######");
@@ -20,33 +42,15 @@ public class AgendaService {
 
     switch(opcao){
       case 1:
-        listarContatos(agenda);
+        contatoService.listarContatos(agenda.getListaContato());
         break;
       case 2:
-        listarEventos(agenda);
+        eventoService.listarEventosComPessoas(agenda.getListaEvento());
         break;
       default:
         System.out.println("Opção de listagem invalida!");
     }
     
-  }
-
-  static void listarContatos(Agenda a) {
-    for(Contato contato : a.getListaContato()){
-      System.out.println("Nome: "+contato.getNome());
-      System.out.println("Data Nascimento: "+contato.getDtNascimentoFormatado());
-      System.out.println("Endereço: "+contato.getEndereco());
-    }
-  }
-
-  static void listarEventos(Agenda a) {
-    for(Evento evento : a.getListaEvento()){
-      System.out.println("Nome do Evento: "+evento.getNomeEvento());
-      System.out.println("Data do Evento: "+evento.getDtEventoFormatado());
-      for(Contato contato : evento.getListaContatos()){
-        System.out.println("Nome Pessoa do Evento: "+contato.getNome());
-      }
-    }
   }
 
 }

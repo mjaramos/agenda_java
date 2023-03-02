@@ -7,6 +7,8 @@ import java.util.List;
 import enumeration.SituacaoEventoEnum;
 
 public class Evento {
+
+  private int codigo;
   
   private String nomeEvento;
 
@@ -41,6 +43,10 @@ public class Evento {
     return statusEvento;
   }
 
+  public int getCodigo() {
+    return codigo;
+  }
+
   public void setDtEvento(LocalDateTime dtEvento) {
     this.dtEvento = dtEvento;
   }
@@ -55,6 +61,10 @@ public class Evento {
 
   public void setStatusEvento(SituacaoEventoEnum statusEvento) {
     this.statusEvento = statusEvento;
+  }
+
+  public void setCodigo(int codigo) {
+    this.codigo = codigo;
   }
 
 }

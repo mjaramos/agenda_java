@@ -5,6 +5,8 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Contato {
+
+  private int codigo;
   
   private String nome;
 
@@ -37,6 +39,10 @@ public class Contato {
     return nome;
   }
 
+  public int getCodigo() {
+    return codigo;
+  }
+
   public void setDtNascimento(LocalDate dtNascimento) {
     this.dtNascimento = dtNascimento;
   }
@@ -47,6 +53,10 @@ public class Contato {
 
   public void setNome(String nome) {
     this.nome = nome;
+  }
+
+  public void setCodigo(int codigo) {
+    this.codigo = codigo;
   }
 
 }
